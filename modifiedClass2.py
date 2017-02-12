@@ -1,12 +1,14 @@
-#import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 
-# def printXY(xs,ys,lab):
-#     plt.plot(xs, ys,'ro',label =lab)
-#     plt.legend()
-#     plt.show()
-
+"""
+project1.py
+The first project for COSC 247: Machine Learning. Code sample based
+on program written by Professor John E. Rager.
+author: Oluwatobi Oni-Orisan
+author: Mohammed Ibrahim
+author: Daniel Mariselli
+"""
 
 num_points = 1000 
 train_set = []
@@ -131,24 +133,6 @@ for step in range(batch_iter):
         train_loss_history.append(sess.run(trainloss))
         test_loss_history.append(sess.run(testloss))
         steps.append(step)
-    
-        # plt.plot(x_train,y_train,'ro',label = str(step))
- #   plt.plot(x_test,y_test,'bo',label = str(step))
-        # plt.plot(x_train,sess.run(W)*x_train+sess.run(b))
-        # plt.legend()
-        # plt.show()
-
-
-# plt.plot(x_train,y_train,'ro',label = str(step))
-# plt.plot(x_train,sess.run(W)*x_train+sess.run(b))
-# plt.legend()
-# plt.show()
 
 print (train_loss_history)
 print (test_loss_history)
-
-
-
-# plt.plot(steps,train_loss_history,'ro')
-# plt.plot(steps,test_loss_history,'bo')
-# plt.show()
