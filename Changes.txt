@@ -2,5 +2,11 @@ Q1. Done
 
 Interesting things we did: 
 	- Changes the loss function
+
 	-Switched the batch size from 1 to 17
-	-changed the optimizer from 0.1 to 0.5 and we didnt notice much difference. 	But upon changing the value in the GradientDescentoptimizer to point 0.01, 		the learning happened at a slower rate. 
+
+	-changed the Gradient Descent Pptimizer from 0.1 to 0.5 and we didnt notice much difference. But upon changing the value in the GradientDescentoptimizer to point 0.01, the learning happened at a slower rate. 
+
+	-swiched our loss function by taking the power to the 4/3 (i.e take the value requrned by tf.reduce_mean(tf.square(z_test_predicted - z_test)) to the power 4/3) and as a result the loss values get increasingly smaller
+
+	-Modified training and test set generation. Train points have a randomly generated constant ranging from 0.0 to 0.06 added to them, while the test points have a randomly generated constant ranging from 0.02 to 0.05.
