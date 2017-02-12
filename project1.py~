@@ -32,6 +32,8 @@ y_train = [v[1] for v in train_set]
 z_train = [v[2] for v in train_set]
 
 
+# printXY(x_train,y_train,z_train, 'Original data')
+
 " generate a test set"
 num_test = 500
 test_set = []
@@ -54,10 +56,11 @@ y_batch = tf.placeholder(tf.float32)
 z_batch = tf.placeholder(tf.float32)
 
 # learning parameters
+#
 
 W = tf.Variable(tf.random_uniform([1], -1.0, 1.0)) 
 b = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
-c = tf.Variable(tf.zeros([1]))
+c= tf.Variable(tf.zeros([1]))
 
 
 z_train_predicted = (W * x_train) + (b * y_train) + c
@@ -115,8 +118,8 @@ for step in range(batch_iter):
     print('________________________')
     print('Data ', xC[0:20],yC[0:20])
     print ('Batch Prediction ==> ', sess.run(z_batch_predicted,feed_dict={x_batch:xC, y_batch:yC})[0:20])
-    # print ('Batch Prediction  ', sess.run(y_batch_predicted,feed_dict={x_batch:xC})[0:20])
-    # print ('Batch Target  ', zC[0:20])
+    #print ('Batch Prediction  ', sess.run(y_batch_predicted,feed_dict={x_batch:xC})[0:20])
+   # print ('Batch Target  ', zC[0:20])
     print ('________________________')
     print ('Batch Target -----> ', zC[0:20])
 
