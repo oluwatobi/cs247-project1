@@ -24,13 +24,11 @@ for i in range(num_points):
     z1= y1 * 0.3 + 0.1 + np.random.normal(0.0,0.03)
     train_set.append([x1, y1, z1])
 
-
 # extract the x and y and z coordinates of the points
 
 x_train = [v[0] for v in train_set] 
 y_train = [v[1] for v in train_set]
 z_train = [v[2] for v in train_set]
-
 
 " generate a test set"
 num_test = 500
@@ -46,7 +44,6 @@ x_test = [v[0] for v in test_set]
 y_test = [v[1] for v in test_set]
 z_test = [v[2] for v in test_set]
 
-
 # Set up the tensorflow model   placeholders for the batch training data 
 
 x_batch = tf.placeholder(tf.float32)
@@ -59,7 +56,6 @@ W = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 b = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 c = tf.Variable(tf.zeros([1]))
 
-
 z_train_predicted = (W * x_train) + (b * y_train) + c
 z_test_predicted = (W * x_test) + (b *y_test) + c
 z_batch_predicted = (W * x_batch) + (b * y_batch) + c
@@ -67,23 +63,18 @@ z_batch_predicted = (W * x_batch) + (b * y_batch) + c
 trainloss = tf.reduce_mean(tf.square(z_train_predicted - z_train))
 testloss = tf.reduce_mean(tf.square(z_test_predicted - z_test))
 
-
 train_loss_history = []
 test_loss_history = []
 steps = []
 
-
 batchloss = tf.reduce_mean(tf.square(z_batch - z_batch_predicted))
 optimizer = tf.train.GradientDescentOptimizer(0.1) 
 
-
 train = optimizer.minimize(batchloss)
-
 
 init = tf.global_variables_initializer()
 sess = tf.Session() 
 sess.run(init)
-
 
 yC =[]
 xC =[]
