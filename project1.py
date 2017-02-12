@@ -20,8 +20,8 @@ print_how_often = 100
 
 for i in range(num_points):
     x1= np.random.normal(0.0, 0.55)
-    y1= x1 * 0.1 + 0.3 + np.random.normal(0.0, 0.03) 
-    z1= y1 * 0.3 + 0.1 + np.random.normal(0.0, 0.03)
+    y1= x1 * 0.1 + 0.3 + np.random.normal(0.0, 0.06) 
+    z1= y1 * 0.3 + 0.1 + np.random.normal(0.0, 0.06)
     train_set.append([x1, y1, z1])
 
 # extract the x and y and z coordinates of the points
@@ -36,8 +36,8 @@ test_set = []
 
 for i in range(num_test):
     x1= np.random.normal(0.0, 0.55)
-    y1= x1 * 0.1 + 0.3 + np.random.normal(0.0, 0.03) 
-    z1= y1 * 0.3 + 0.1 + np.random.normal(0.0,0.03)
+    y1= x1 * 0.1 + 0.3 + np.random.normal(0.02, 0.05) 
+    z1= y1 * 0.3 + 0.1 + np.random.normal(0.02, 0.05)
     test_set.append([x1, y1, z1])
 
 x_test = [v[0] for v in test_set]
