@@ -1,0 +1,6 @@
+Q1. Done
+
+Interesting things we did: 
+	- Changes the loss function
+	-Switched the batch size from 1 to 17
+	-changed the optimizer from 0.1 to 0.5 and we didnt notice much difference. 	But upon changing the value in the GradientDescentoptimizer to point 0.01, 		the learning happened at a slower rate. 
