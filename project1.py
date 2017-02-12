@@ -16,12 +16,12 @@ batch_size = 1
 batch_iter = 2000
 print_how_often = 100
 
-#generate the points to be used in the learning experiment
+# generate the points to be used in the learning experiment
 
 for i in range(num_points):
     x1= np.random.normal(0.0, 0.55)
     y1= x1 * 0.1 + 0.3 + np.random.normal(0.0, 0.03) 
-    z1= y1 * 0.3 + 0.1 + np.random.normal(0.0,0.03)
+    z1= y1 * 0.3 + 0.1 + np.random.normal(0.0, 0.03)
     train_set.append([x1, y1, z1])
 
 # extract the x and y and z coordinates of the points
@@ -30,7 +30,7 @@ x_train = [v[0] for v in train_set]
 y_train = [v[1] for v in train_set]
 z_train = [v[2] for v in train_set]
 
-" generate a test set"
+# generate a test set
 num_test = 500
 test_set = []
 
@@ -44,7 +44,7 @@ x_test = [v[0] for v in test_set]
 y_test = [v[1] for v in test_set]
 z_test = [v[2] for v in test_set]
 
-# Set up the tensorflow model   placeholders for the batch training data 
+# Set up the tensorflow model placeholders for the batch training data 
 
 x_batch = tf.placeholder(tf.float32)
 y_batch = tf.placeholder(tf.float32)
