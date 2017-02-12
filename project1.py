@@ -68,7 +68,7 @@ test_loss_history = []
 steps = []
 
 batchloss = tf.reduce_mean(tf.square(z_batch - z_batch_predicted))
-optimizer = tf.train.GradientDescentOptimizer(0.1) 
+optimizer = tf.train.GradientDescentOptimizer(0.01) 
 
 train = optimizer.minimize(batchloss)
 
@@ -107,9 +107,8 @@ for step in range(batch_iter):
     print('Data ', xC[0:20],yC[0:20])
     print ('Batch Prediction ', sess.run(z_batch_predicted,feed_dict={x_batch:xC, y_batch:yC})[0:20])
     # print ('Batch Prediction  ', sess.run(y_batch_predicted,feed_dict={x_batch:xC})[0:20])
-    # print ('Batch Target  ', zC[0:20])
+    print ('Batch Target  ', zC[0:20])
     print ('________________________')
-    print ('Batch Target ', zC[0:20])
 
     sess.run(train,feed_dict={x_batch:xC,y_batch:yC,z_batch:zC})
  
