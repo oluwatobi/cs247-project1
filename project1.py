@@ -60,15 +60,19 @@ z_train_predicted = (W * x_train) + (b * y_train) + c
 z_test_predicted = (W * x_test) + (b *y_test) + c
 z_batch_predicted = (W * x_batch) + (b * y_batch) + c
 
-trainloss = tf.reduce_mean(tf.square(z_train_predicted - z_train))
-testloss = tf.reduce_mean(tf.square(z_test_predicted - z_test))
+# Setting up exponents
+val = 4.0/3.0
+exp_one = tf.Variable(val)
+
+trainloss = tf.pow(tf.reduce_mean(tf.square((z_train_predicted - z_train))), exp_one)
+testloss = tf.pow(tf.reduce_mean(tf.square((z_test_predicted - z_test))), exp_one)
 
 train_loss_history = []
 test_loss_history = []
 steps = []
 
-batchloss = tf.reduce_mean(tf.square(z_batch - z_batch_predicted))
-optimizer = tf.train.GradientDescentOptimizer(0.01) 
+batchloss = tf.pow(tf.reduce_mean(tf.square((z_batch - z_batch_predicted))), exp_one)
+optimizer = tf.train.GradientDescentOptimizer(0.1)
 
 train = optimizer.minimize(batchloss)
 
