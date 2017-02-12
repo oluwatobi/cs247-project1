@@ -12,7 +12,7 @@ author: Daniel Mariselli
 
 num_points = 1000 
 train_set = []
-batch_size = 1
+batch_size = 17
 batch_iter = 2000
 print_how_often = 100
 
@@ -97,11 +97,11 @@ for step in range(batch_iter):
         yC.append(y_train[step % 1000])
         zC.append(z_train[step % 1000])
     else:
-        for step2 in xrange(batch_size):
-            randOne = np.random.randint(0,num_points)
-            xC.append(x_train[randOne])
-            yC.append(y_train[randOne])
-            zC.append(z_train[randOne])
+        for step2 in range(batch_size):
+            #randOne = np.random.randint(0,num_points)
+            xC.append(x_train[step2])
+            yC.append(y_train[step2])
+            zC.append(z_train[step2])
 
     print('________________________')
     print('Data ', xC[0:20],yC[0:20])
