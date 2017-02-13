@@ -103,9 +103,9 @@ for step in range(batch_iter):
     else:
         for step2 in range(batch_size):
             #randOne = np.random.randint(0,num_points)
-            xC.append(x_train[step2])
-            yC.append(y_train[step2])
-            zC.append(z_train[step2])
+            xC.append(x_train[(step + step2) % 1000])
+            yC.append(y_train[(step + step2) % 1000])
+            zC.append(z_train[(step + step2) % 1000])
 
     print('________________________')
     print('Data ', xC[0:20],yC[0:20])
